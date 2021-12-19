@@ -56,12 +56,12 @@
         </button>
       </div>
       <!--  -->
-</br>
-</br>
+      </br>
+      </br>
 
-</br>
+      </br>
 
-</br>
+      </br>
 
       <div class="container">
         <div class="row red">
@@ -100,13 +100,18 @@
           </div>
         </div>
       </div>
-<!--  -->
+      <!--  -->
     </div>
     <!-- main body ends -->
     <!-- right sidebar start -->
     <div class="col white"></div>
     <!--  right sidebar ends -->
   </div>
+
+  <?php
+    include('pages/footer.php');
+  ?>
+
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
