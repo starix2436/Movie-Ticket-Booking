@@ -7,7 +7,7 @@
   <meta name="description" content="" />
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
   <meta name="generator" content="Hugo 0.84.0" />
-  <title>Carousel Template · Bootstrap v5.0</title>
+  <title>Home</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/" />
 
@@ -276,7 +276,7 @@
       </footer>
   </main>
 
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

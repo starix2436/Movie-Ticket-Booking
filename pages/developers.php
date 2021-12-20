@@ -13,37 +13,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <style>
-      .card {
-		background-color:black;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        max-width: 400px;
-        margin: auto;
-        text-align: center;
-		color:white;
-        font-family: arial;
-		border-radius: 1rem;
-
-      }
-
-      .rollno {
-        color: grey;
-        font-size: 27px;
-      }
-
-      a {
-        text-decoration: none;
-        font-size: 30px;
-        color: black;
-      }
-
-      button:hover,
-      a:hover {
-        opacity: 0.7;
-      }
-    </style>
+    
   </head>
   <body>
+  <?php
+  include('navbar.php');
+?>
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <div class="col">
         <div class="card">
@@ -190,6 +165,9 @@
         </div>
       </div>
     </div>
+    <?php
+  include('footer.php');
+?>
   <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
