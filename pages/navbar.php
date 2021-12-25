@@ -40,8 +40,8 @@
           <li><a href="#" class="nav-link px-2 text-white">About</a></li>
         </ul>
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Sign-up</button>
+          <button type="button" class="btn btn-outline-light me-2" ><a href="./pages/signin_signup.php" class="nav-link px-2 text-white">Login</a></button>
+          <button type="button" class="btn btn-warning" ><a href="./pages/signin_signup.php" class="nav-link px-2 text-white">Sign-up</a></button>
         </div>
       </div>
     </div>

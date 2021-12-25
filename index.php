@@ -1,3 +1,18 @@
+<?php
+include('db_connection.php');
+$conn = OpenCon();
+
+$result=mysqli_query($conn,"select * from movie_30");
+
+while($row=mysqli_fetch_array($result))
+{
+         echo $row['m_name'].' '.$row['m_rating'].' '.$row['m_len'].' '.$row['m_genre'].' '.$row['m_img'].' '.$row['m_id'].'<br/>';
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -271,6 +286,10 @@
 
         <?php
   include('pages/footer.php');
+?>
+
+<?php
+CloseCon($conn);
 ?>
 
       </footer>

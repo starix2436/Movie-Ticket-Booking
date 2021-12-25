@@ -1,4 +1,3 @@
-
 CREATE TABLE movie_30 (
   m_id INT PRIMARY KEY,
   m_name VARCHAR(100),
