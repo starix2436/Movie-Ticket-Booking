@@ -4,10 +4,10 @@ $conn = OpenCon();
 
 $result=mysqli_query($conn,"select * from movie_30");
 
-while($row=mysqli_fetch_array($result))
-{
-         echo $row['m_name'].' '.$row['m_rating'].' '.$row['m_len'].' '.$row['m_genre'].' '.$row['m_img'].' '.$row['m_id'].'<br/>';
-}
+// while($row=mysqli_fetch_array($result))
+// {
+//          echo $row['m_name'].' '.$row['m_rating'].' '.$row['m_len'].' '.$row['m_genre'].' '.$row['m_img'].' '.$row['m_id'].'<br/>';
+// }
 
 
 
@@ -132,40 +132,23 @@ while($row=mysqli_fetch_array($result))
     <div class="container marketing">
       <!-- Three columns of text below the carousel -->
       <div class="row">
+
+      <?php    while($row=mysqli_fetch_array($result)): ?>
         <div class="col-lg-4">
           <div class="card" style="width: 100%;">
-            <img src="bootstrap-themes.png" class="card-img-top" alt="...">
+            <img src="<?php  echo $row['m_img'] ?>" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5 class="card-title"><?php echo $row['m_name'] ?></h5>
+              <p class="card-text"> Rating: <?php echo $row['m_rating'] ?>/10</p>
+              <p class="card-text"> Genre: <?php echo $row['m_genre'] ?></p>
+              <p class="card-text"> Duration <?php echo $row['m_len'] ?></p>
+              <a href="#" class="btn btn-primary">Book Now</a>
             </div>
           </div>
         </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <div class="card" style="width: 100%;">
-            <img src="bootstrap-themes.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <div class="card" style="width: 100%;">
-            <img src="bootstrap-themes.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div> <!-- /.col-lg-4 -->
+        <?php endwhile; ?>
+
+
         </div>
         <!-- /.row -->
 
