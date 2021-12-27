@@ -13,6 +13,7 @@ $result=mysqli_query($conn,"select * from movie_30");
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +54,6 @@ $result=mysqli_query($conn,"select * from movie_30");
   <?php
   include('pages/navbar.php');
 ?>
-
   <main>
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -133,10 +133,18 @@ $result=mysqli_query($conn,"select * from movie_30");
       <!-- Three columns of text below the carousel -->
       <div class="row">
 
-      <?php    while($row=mysqli_fetch_array($result)): ?>
+      <?php    
+      include_once './imdb.class.php';
+
+      
+      while($row=mysqli_fetch_array($result)):
+      
+      $oIMDB = new IMDB($row['m_img']);
+      ?>
         <div class="col-lg-4">
           <div class="card" style="width: 100%;">
-            <img src="<?php  echo $row['m_img'] ?>" class="card-img-top" alt="...">
+
+            <img src="<?php if ($oIMDB->isReady) { echo $oIMDB->getPoster('small', true);}?>" class="card-img-top" alt="...">       
             <div class="card-body">
               <h5 class="card-title"><?php echo $row['m_name'] ?></h5>
               <p class="card-text"> Rating: <?php echo $row['m_rating'] ?>/10</p>
