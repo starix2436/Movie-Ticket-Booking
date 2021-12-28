@@ -19,7 +19,7 @@ $result=mysqli_query($conn,"select * from movie_30");
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link href="moviedetails_style.css" rel="stylesheet">
     <title>Hello, world!</title>
   </head>
   <body>
@@ -58,36 +58,51 @@ $result=mysqli_query($conn,"select * from movie_30");
                 <p class="card-text"> Duration <?php echo $row['m_len'] ?></p>
                 <!-- below is present in the updated db -->
                 <!-- <p class="card-text"> Description <?php echo $row['m_description'] ?></p> -->
+                <?php
+                  $show_sql=mysqli_query($conn,"select * from show_c where m_id =2");
+                  while($s_row=mysqli_fetch_array($show_sql)):
+                  //$row = $conn->query($sql);
+                ?>
+            
+                <p class="card-text"> Date: <?php echo date('d M Y', strtotime($s_row['s_Date'])); ?></p>
+                <a href="#" class="btn btn-primary"><?php echo date('g:i', strtotime($s_row['s_startime'])) ?></a>
+                
+                <?php endwhile; ?>
             
               </div>
             </div>
         </div>
 
-        <?php endwhile; ?>
+        <div class = "container recomendation">
+          <div class = "row">
+          <?php 
+          $recomendation_sql=mysqli_query($conn,"select * from movie_30 where m_id <> 1 limit 3");
+          while($r_row=mysqli_fetch_array($recomendation_sql)):
       
-      
-      <?php
-      $show_sql=mysqli_query($conn,"select * from show_c where m_id =1");
-      while($row=mysqli_fetch_array($movie_sql)):
-      //$row = $conn->query($sql);
-      ?>
-        <div class="container show_details">
-            <div class="row">
-              <div class="col-sm-8">
-                <p class="card-text"> Date: <?php echo $row['s_Date'] ?></p>
-                <a href="#" class="btn btn-primary"><?php echo $row['s_startime'] ?></a>
-                
-                
-                
-                <p class="card-text"> Duration <?php echo $row['m_len'] ?></p>
-                <!-- below is present in the updated db -->
-                <!-- <p class="card-text"> Description <?php echo $row['m_description'] ?></p> -->
-            
-              </div>
+            $oIMDB = new IMDB($r_row['m_img']);
+            ?>
+        <div class="col-lg-4">
+          <div class="card" style="width: 100%;">
+
+            <img src="<?php if ($oIMDB->isReady) { echo $oIMDB->getPoster('small', true);}?>" class="card-img-top" alt="...">       
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $r_row['m_name'] ?></h5>
+              <p class="card-text"> Rating: <?php echo $r_row['m_rating'] ?>/10</p>
+              <p class="card-text"> Genre: <?php echo $r_row['m_genre'] ?></p>
+              <p class="card-text"> Duration <?php echo $r_row['m_len'] ?></p>
+              <a href="#" class="btn btn-primary">Book Now</a>
             </div>
+          </div>
+        </div>
+        <?php endwhile; ?>
         </div>
 
+        
+            
         <?php endwhile; ?>
+      
+      
+      
 
   </body>
 </html> 
