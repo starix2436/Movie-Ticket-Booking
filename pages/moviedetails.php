@@ -92,7 +92,7 @@ $id = $_GET['m_id'];
                   
     <div class="row">
       <?php 
-          $recomendation_sql=mysqli_query($conn,"select * from movie_30 where m_id <> ".$id." limit 3 offset 2");
+          $recomendation_sql=mysqli_query($conn,"select * from movie_30 where m_id <> ".$id." ORDER BY RAND() limit 3");
           while($r_row=mysqli_fetch_array($recomendation_sql)):
       
             $oIMDB = new IMDB($r_row['m_img']);
