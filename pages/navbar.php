@@ -33,11 +33,12 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="../index.php" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a href="./allmovies.php" class="nav-link px-2 text-white">All Movies</a></li>
-          <li><a href="./developers.php" class="nav-link px-2 text-white">Developers</a></li>
-          <li><a href="./faq.php" class="nav-link px-2 text-white">FAQs</a></li>
-          <li><a href="./about.php" class="nav-link px-2 text-white">About</a></li>
+          <li><a href="http://localhost/index.php" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="http://localhost/pages/allmovies.php" class="nav-link px-2 text-white">All Movies</a></li>
+          <li><a href="http://localhost/pages/developers.php" class="nav-link px-2 text-white">Developers</a></li>
+          <li><a href="http://localhost/pages/blog.php" class="nav-link px-2 text-white">Blog</a></li>
+          <li><a href="http://localhost/pages/faq.php" class="nav-link px-2 text-white">FAQs</a></li>
+          <li><a href="http://localhost/pages/about.php" class="nav-link px-2 text-white">About</a></li>
         </ul>
         <div class="text-end">
           <button type="button" class="btn btn-outline-light me-2" ><a href="./pages/signin_signup.php" class="nav-link px-2 text-white">Login</a></button>

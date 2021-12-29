@@ -47,17 +47,17 @@
       <div class="col">
         <h5>Box Office</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="../index.php" class="nav-link p-0 text-muted">Home</a></li>
-          <li class="nav-item mb-2"><a href="./faq.php" class="nav-link p-0 text-muted">FAQ</a></li>
-          <li class="nav-item mb-2"><a href="./about.php" class="nav-link p-0 text-muted">ABOUT</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost/index.php" class="nav-link p-0 text-muted">HOME</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost/pages/faq.php" class="nav-link p-0 text-muted">FAQ</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost/pages/about.php" class="nav-link p-0 text-muted">ABOUT</a></li>
         </ul>
       </div>
 
       <div class="col">
         <h5>Extras</h5>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="./developers.php" class="nav-link p-0 text-muted">DEVELOPERS</a></li>
-          <li class="nav-item mb-2"><a href="./allmovies.php" class="nav-link p-0 text-muted">ALL MOVIES</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost/pages/developers.php" class="nav-link p-0 text-muted">DEVELOPERS</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost/pages/allmovies.php" class="nav-link p-0 text-muted">ALL MOVIES</a></li>
         </ul>
       </div>
 

@@ -188,7 +188,12 @@
           </div>
         </div>
       </div>
+      
     </div>
+    
+    </br>
+    </br>
+    <hr class="featurette-divider" />
     <?php
   include('footer.php');
 ?>
