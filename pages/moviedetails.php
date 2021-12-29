@@ -66,25 +66,24 @@ $result=mysqli_query($conn,"select * from movie_30");
         <!-- below is present in the updated db -->
         <!-- <p class="card-text"> Description <?php echo $row['m_description'] ?></p> -->
         <div class="container">
-
-        </div>
-        <?php
+          <div class="row">
+            <?php
                   $show_sql=mysqli_query($conn,"select * from show_c where m_id =2");
                   while($s_row=mysqli_fetch_array($show_sql)):
                   //$row = $conn->query($sql);
                 ?>
-        <div class="row">
-          <div class="col">
-            <p class="card-text"> Date: <?php echo date('d M Y', strtotime($s_row['s_Date'])); ?></p>
+
+            <div class="col-2">
+              <span class="card-text"> Date: <?php echo date('d M Y', strtotime($s_row['s_Date'])); ?></span>
+            </div>
+            <div class="col-2">
+              <a href="#" class="btn btn-primary"><?php echo date('g:i', strtotime($s_row['s_startime'])) ?></a>
+
+            </div>
+
+            <?php endwhile; ?>
           </div>
-          <div class="col"> <a href="#"
-              class="btn btn-primary"><?php echo date('g:i', strtotime($s_row['s_startime'])) ?></a></div>
-
-
-
         </div>
-
-        <?php endwhile; ?>
 
       </div>
     </div>
