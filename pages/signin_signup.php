@@ -10,12 +10,13 @@
 <body>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form action="#" method="post">
 			<h1>Create Account</h1>
-			<input type="text" placeholder="Fullname" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
+			<input type="text" placeholder="Fullname" name="name">
+			<input type="email" placeholder="Email" name="email">
+			<input type="password" placeholder="Password" name="pass">
+			<button name="save" input type="submit">Sign Up</button>
+
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
@@ -23,7 +24,7 @@
 			<h1>Sign in</h1>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<button>Sign In</button>
+			<button id="login">Sign In</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -41,6 +42,25 @@
 		</div>
 	</div>
 </div>
+
+<?php
+include_once 'C:\xampp\htdocs\db_connection.php';
+$conn = OpenCon();
+if (isset($_POST['save'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    $sql = "INSERT INTO user (u_name,u_email,u_pass)
+	 VALUES ('$name','$email','$pass')";
+    if (mysqli_query($conn, $sql)) {
+        echo '<br>New record created successfully !';
+    } else {
+        echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
+    }
+    mysqli_close($conn);
+}
+?>
 
 <script src="signup_transition.js"></script>
 </body>
