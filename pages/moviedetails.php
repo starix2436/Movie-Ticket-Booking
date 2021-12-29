@@ -107,7 +107,7 @@ $id = $_GET['m_id'];
             <p class="card-text"> Rating: <?php echo $r_row['m_rating'] ?>/10</p>
             <p class="card-text"> Genre: <?php echo $r_row['m_genre'] ?></p>
             <p class="card-text"> Duration <?php echo $r_row['m_len'] ?></p>
-            <a href="#" class="btn btn-primary">Book Now</a>
+            <a href="http://localhost/pages/moviedetails.php?m_id=<?php echo $row['m_id'] ?>" class="btn btn-primary">Book Now</a>
           </div>
         </div>
       </div>
