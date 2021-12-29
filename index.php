@@ -150,7 +150,7 @@ $result=mysqli_query($conn,"select * from movie_30");
               <p class="card-text"> Rating: <?php echo $row['m_rating'] ?>/10</p>
               <p class="card-text"> Genre: <?php echo $row['m_genre'] ?></p>
               <p class="card-text"> Duration <?php echo $row['m_len'] ?></p>
-              <a href="#" class="btn btn-primary">Book Now</a>
+              <a href="http://localhost/pages/moviedetails.php?m_id=<?php echo $row['m_id'] ?>" class="btn btn-primary">Book Now</a>
             </div>
           </div>
         </div>

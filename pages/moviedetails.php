@@ -45,7 +45,8 @@ $result=mysqli_query($conn,"select * from movie_30");
       include_once '../imdb.class.php';
 
       //need to pass the m_id of the movie from the index page
-      $movie_sql=mysqli_query($conn,"select * from movie_30 where m_id = 1");
+      $id = $_GET['m_id'];
+      $movie_sql=mysqli_query($conn,"select * from movie_30 where m_id = ".$id);
       while($row=mysqli_fetch_array($movie_sql)):
       //$row = $conn->query($sql);
       
@@ -117,7 +118,9 @@ $result=mysqli_query($conn,"select * from movie_30");
 
 
     <?php endwhile; ?>
-
+    <?php
+  include('../pages/footer.php');
+?>
 
 
 
