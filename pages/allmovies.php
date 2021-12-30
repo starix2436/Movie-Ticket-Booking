@@ -49,7 +49,7 @@ $oIMDB = new IMDB($row['m_img']);
   <div class="col-lg-4">
     <div class="card" style="width: 100%;">
 
-      <img src="../<?php if ($oIMDB->isReady) { echo $oIMDB->getPoster('small', true);}?>" class="card-img-top" alt="...">       
+      <img src="../<?php if ($oIMDB->isReady) { echo $oIMDB->getPoster('small', true);}?>" class="card-img-top" alt="..." loading="lazy">       
       <div class="card-body">
         <h5 class="card-title"><?php echo $row['m_name'] ?></h5>
         <p class="card-text"> Rating: <?php echo $row['m_rating'] ?>/10</p>
