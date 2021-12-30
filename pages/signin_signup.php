@@ -22,9 +22,9 @@
 	<div class="form-container sign-in-container">
 		<form action="#">
 			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button id="login">Sign In</button>
+			<input type="email" placeholder="Email" name="lemail"/>
+			<input type="password" placeholder="Password" name="lpass"/>
+			<button name="login" input type="submit">Sign In</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -60,7 +60,25 @@ if (isset($_POST['save'])) {
     }
     mysqli_close($conn);
 }
+
+session_start();
+if (isset($_POST['lemail']) && isset($_POST['lpass'])) {
+    if (auth($_POST['lemail'], $_POST['lpass'])) {
+        // auth okay, setup session
+        $_SESSION['email'] = $_POST['lemail'];
+        // redirect to required page
+        header("Location: C:\xampp\htdocs\index.php");
+    } else {
+        // didn't auth go back to loginform
+        header('Location: signin_signup.php');
+    }
+} else {
+    // username and password not given so go back to login
+    header('Location: signin_signup.php');
+}
 ?>
+
+
 
 <script src="signup_transition.js"></script>
 </body>
