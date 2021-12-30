@@ -2,8 +2,6 @@
 include('../db_connection.php');
 $conn = OpenCon();
 
-$result=mysqli_query($conn,"select * from movie_30");
-
 // while($row=mysqli_fetch_array($result))
 // {
 //          echo $row['m_name'].' '.$row['m_rating'].' '.$row['m_len'].' '.$row['m_genre'].' '.$row['m_img'].' '.$row['m_id'].'<br/>';
@@ -12,6 +10,8 @@ include_once '../imdb.class.php';
 
 //need to pass the m_id of the movie from the index page
 $id = $_GET['m_id'];
+$movie_sql=mysqli_query($conn,"select * from movie_30 where m_id = ".$id);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,7 +25,11 @@ $id = $_GET['m_id'];
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <title><?php echo $row['m_name'] ?></title>
+  <title><?php
+  $idheader = $_GET['m_id'];
+  $movieheader=mysqli_query($conn,"select * from movie_30 where m_id = ".$idheader);
+  $row=mysqli_fetch_array($movieheader);
+  echo $row['m_name'] ?></title>
 </head>
 
 <body>
@@ -33,35 +37,37 @@ $id = $_GET['m_id'];
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
 
+
   <?php
       include('navbar.php');
      
-      $movie_sql=mysqli_query($conn,"select * from movie_30 where m_id = ".$id);
-      while($row=mysqli_fetch_array($movie_sql)):
+while($row=mysqli_fetch_array($movie_sql)):
       //$row = $conn->query($sql);
       
       $oIMDB = new IMDB($row['m_img']);
       
       ?>
-  <div class="container movie_details">
-    <div class="row">
-      <div class="col-sm-4">
+
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
         <img src="../<?php if ($oIMDB->isReady) { echo $oIMDB->getPoster('small', true);}?>" class="card-img-top"
-          alt="...">
-        <h5 class="card-title-below"><?php echo $row['m_name'] ?></h5>
+        class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" alt="...">
       </div>
-      <div class="col-sm-8">
-        <div class ="movie details">
-          <h5 class="card-title"><?php echo $row['m_name'] ?></h5>
-          <p class="card-text"> Rating: <?php echo $row['m_rating'] ?>/10</p>
-          <p class="card-text"> Genre: <?php echo $row['m_genre'] ?></p>
-          <p class="card-text"> Duration <?php echo $row['m_len'] ?></p>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3"><?php echo $row['m_name'] ?></h1>
+          <!-- <p class="lead"> Description <?php echo $row['m_description'] ?></p> -->
+        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        
+          <p class="lead"> Rating: <?php echo $row['m_rating'] ?>/10</p>
+          <p class="lead"> Genre: <?php echo $row['m_genre'] ?></p>
+          <p class="lead"> Duration <?php echo $row['m_len'] ?></p>
           <!-- below is present in the updated db -->
-          <!-- <p class="card-text"> Description <?php echo $row['m_description'] ?></p> -->
-        </div>
-        <div class="container">
-          <div class="row">
-            <?php
+
+
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <?php
                   $show_sql=mysqli_query($conn,"select * from show_c where m_id =".$id);
                   while($s_row=mysqli_fetch_array($show_sql)):
                   //$row = $conn->query($sql);
@@ -75,13 +81,15 @@ $id = $_GET['m_id'];
             </div>
 
             <?php endwhile; ?>
-          </div>
         </div>
-
       </div>
     </div>
-    <hr class="featurette-divider" />
   </div>
+
+  <div class="b-example-divider"></div>
+
+    
+    <hr class="featurette-divider" />
 
                   </br>
                   </br>
