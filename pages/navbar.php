@@ -41,8 +41,8 @@
           <li><a href="http://localhost/pages/about.php" class="nav-link px-2 text-white">About</a></li>
         </ul>
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2" ><a href="./pages/signin_signup.php" class="nav-link px-2 text-white">Login</a></button>
-          <button type="button" class="btn btn-warning" ><a href="./pages/signin_signup.php" class="nav-link px-2 text-white">Sign-up</a></button>
+          <button type="button" class="btn btn-outline-light me-2" ><a href="http://localhost/pages/signin_signup.php" class="nav-link px-2 text-white">Login</a></button>
+          <button type="button" class="btn btn-warning" ><a href="http://localhost/pages/signin_signup.php" class="nav-link px-2 text-white">Sign-up</a></button>
         </div>
       </div>
     </div>
