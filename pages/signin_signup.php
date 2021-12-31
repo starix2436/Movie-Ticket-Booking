@@ -20,13 +20,15 @@
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="#" method="post">
 			<h1>Sign in</h1>
 			<input type="email" placeholder="Email" name="lemail"/>
 			<input type="password" placeholder="Password" name="lpass"/>
 			<button name="login" input type="submit">Sign In</button>
 		</form>
 	</div>
+	
+
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
@@ -45,8 +47,9 @@
 
 <?php
 include_once 'C:\xampp\htdocs\db_connection.php';
-$conn = OpenCon();
+
 if (isset($_POST['save'])) {
+    $conn = OpenCon();
     $name = $_POST['name'];
     $email = $_POST['email'];
     $pass = $_POST['pass'];
@@ -61,23 +64,30 @@ if (isset($_POST['save'])) {
     mysqli_close($conn);
 }
 
-session_start();
-if (isset($_POST['lemail']) && isset($_POST['lpass'])) {
-    if (auth($_POST['lemail'], $_POST['lpass'])) {
-        // auth okay, setup session
-        $_SESSION['email'] = $_POST['lemail'];
-        // redirect to required page
-        header("Location: C:\xampp\htdocs\index.php");
-    } else {
-        // didn't auth go back to loginform
-        header('Location: signin_signup.php');
-    }
-} else {
-    // username and password not given so go back to login
-    header('Location: signin_signup.php');
-}
-?>
+if (isset($_POST['login'])) {
+    $conn = OpenCon();
+    $email = $_POST['lemail'];
+    $pass = $_POST['lpass'];
 
+    //     header('Location: developers.php');
+
+    ($result = mysqli_query(
+        $conn,
+        "SELECT u_email,u_pass FROM user WHERE u_email = '$email'"
+    )) or die('failed to query database' . mysqli_error($conn));
+
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row['u_email'] == $email && $row['u_pass'] == $pass) {
+        // echo 'Login successfull';
+        header('location: ../index.php');
+    } else {
+        echo 'Login failed try agian..';
+    }
+
+    mysqli_close($conn);
+}
+?>	
 
 
 <script src="signup_transition.js"></script>
