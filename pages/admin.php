@@ -1,28 +1,260 @@
-<!-- To add new movies -->
+<?php
+include('../db_connection.php');
+$conn = OpenCon();
+?>
+
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Checkout example · Bootstrap v5.0</title>
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Admin Page</h1>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+  <!-- Bootstrap core CSS -->
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- Custom styles for this template -->
+  <link href="form-validation.css" rel="stylesheet">
+</head>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-  </body>
+<body class="bg-light">
+
+  <?php
+  include('./navbar.php');
+?>
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h2>Add a new movie to database</h2>
+      </div>
+
+      <div class="row row-cols-2">
+        <div class="col">
+          <h4 class="mb-3">Movie details</h4>
+          <form class="needs-validation" action="#" method="postt">
+            <div class="row g-3">
+              <div class="col-6">
+                <label for="movieName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Movie name is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid description is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Length</label>
+                <input type="text" class="form-control" id="length" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid length is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Genre</label>
+                <input type="text" class="form-control" id="genre" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid genre is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Rating</label>
+                <input type="text" class="form-control" id="rating" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid rating is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Img link</label>
+                <input type="text" class="form-control" id="img_link" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid img_link is required.
+                </div>
+              </div>
+
+              <hr class="my-4">
+              <button class="w-100 btn btn-primary btn-lg" name="add_to_db" type="submit">Add to Database</button>
+              <hr class="my-4">
+              <?php 
+                // if (isset($_POST['add_to_db'])){
+                //   $name=$_POST['name'];
+                //   $description=$_POST['description'];
+                //   $lenght=$_POST['lenght'];
+                //   $genre=$_POST['genre'];
+                //   $rating=$_POST['rating'];
+                //   $img_link=$_POST['img_link'];
+                // }
+
+                // echo $name;
+
+                // // $sql = "INSERT INTO movie_30 (m_name,m_rating,m_len,m_genre,m_img) VALUES ('$name','$rating','$length','$genre','$img_link')";
+
+                // // if (mysqli_query($conn, $sql)) {
+                // //   echo '<br>New record created successfully !';
+                // // } else {
+                // //   echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
+                // // }
+                // mysqli_close($conn);
+              
+              ?>
+
+          </form>
+        </div>
+
+
+        <div class="col">
+          <h4 class="mb-3">Show details</h4>
+          <form class="needs-validation" action="#" method="postt">
+            <div class="row g-3">
+              <div class="col-6">
+                <label for="movieName" class="form-label">Movie Name</label>
+                <input type="text" class="form-control" id="s_name" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Movie name is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Date</label>
+                <input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" value="" required>
+                <div class="invalid-feedback">
+                  Valid Date required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Starttime</label>
+                <input type="text" class="form-control" id="starttime" placeholder="hh:mm:ss" value="" required>
+                <div class="invalid-feedback">
+                  Valid Start time is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Cinema Hall Name</label>
+                <input type="text" class="form-control" id="cinema_hall" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Cinema Hall name is required.
+                </div>
+              </div>
+            
+
+              <hr class="my-4">
+              <button class="w-100 btn btn-primary btn-lg" name="add_to_db" type="submit">Add to Database</button>
+              <hr class="my-4">
+              <?php 
+                // if (isset($_POST['add_to_db'])){
+                //   $name=$_POST['name'];
+                //   $description=$_POST['description'];
+                //   $lenght=$_POST['lenght'];
+                //   $genre=$_POST['genre'];
+                //   $rating=$_POST['rating'];
+                //   $img_link=$_POST['img_link'];
+                // }
+
+                // echo $name;
+
+                // // $sql = "INSERT INTO movie_30 (m_name,m_rating,m_len,m_genre,m_img) VALUES ('$name','$rating','$length','$genre','$img_link')";
+
+                // // if (mysqli_query($conn, $sql)) {
+                // //   echo '<br>New record created successfully !';
+                // // } else {
+                // //   echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
+                // // }
+                // mysqli_close($conn);
+              
+              ?>
+
+          </form>
+        </div>
+
+        <div class="col">
+          <h4 class="mb-3">Show details</h4>
+          <form class="needs-validation" action="#" method="postt">
+            <div class="row g-3">
+              <div class="col-6">
+                <label for="movieName" class="form-label">Movie Name</label>
+                <input type="text" class="form-control" id="s_name" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Movie name is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Date</label>
+                <input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" value="" required>
+                <div class="invalid-feedback">
+                  Valid Date required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Starttime</label>
+                <input type="text" class="form-control" id="starttime" placeholder="hh:mm:ss" value="" required>
+                <div class="invalid-feedback">
+                  Valid Start time is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="movieName" class="form-label">Cinema Hall Name</label>
+                <input type="text" class="form-control" id="cinema_hall" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Cinema Hall name is required.
+                </div>
+              </div>
+            
+
+              <hr class="my-4">
+              <button class="w-100 btn btn-primary btn-lg" name="add_to_db" type="submit">Add to Database</button>
+              <hr class="my-4">
+              <?php 
+                // if (isset($_POST['add_to_db'])){
+                //   $name=$_POST['name'];
+                //   $description=$_POST['description'];
+                //   $lenght=$_POST['lenght'];
+                //   $genre=$_POST['genre'];
+                //   $rating=$_POST['rating'];
+                //   $img_link=$_POST['img_link'];
+                // }
+
+                // echo $name;
+
+                // // $sql = "INSERT INTO movie_30 (m_name,m_rating,m_len,m_genre,m_img) VALUES ('$name','$rating','$length','$genre','$img_link')";
+
+                // // if (mysqli_query($conn, $sql)) {
+                // //   echo '<br>New record created successfully !';
+                // // } else {
+                // //   echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
+                // // }
+                // mysqli_close($conn);
+              
+              ?>
+
+          </form>
+        </div>
+        
+      </div>
+      </br>
+      </br>
+      <hr class="featurette-divider" />
+    </main>
+
+    </br>
+    </br>
+    <?php
+  include('../pages/footer.php');
+?>
+  </div>
+
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="form-validation.js"></script>
+</body>
+
 </html>
