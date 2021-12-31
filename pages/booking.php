@@ -1,3 +1,8 @@
+<?php
+include('../db_connection.php');
+$conn = OpenCon();
+$id = $_GET['s_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,13 +14,15 @@
   </head>
   <body>
     <div class="movie-container">
-      <label> Select a movie:</label>
-      <select id="movie">
-        <option value="220">Godzilla vs Kong (RS.220)</option>
-        <option value="320">Radhe (RS.320)</option>
-        <option value="250">RRR (RS.250)</option>
-        <option value="260">F9 (RS.260)</option>
-      </select>
+      <?php
+      $seat_sql=mysqli_query($conn,"select * from cinema_hall where (select ch_id from show_c where s_id =".$id.")");
+      // $seqt_count = (int)$seat_sql;
+      $seat_row = mysqli_fetch_array($seat_sql);
+      $s_sql = mysqli_query($conn,"select * from show_c where s_id =".$id);
+      $s_row=mysqli_fetch_array($s_sql);
+      ?>
+
+      <span class="card-text"> Date: <?php echo date('d M Y', strtotime($s_row['s_Date'])); ?> <?php echo date('g:i', strtotime($s_row['s_startime'])) ?></span>
     </div>
 
     <ul class="showcase">
@@ -35,67 +42,22 @@
     <div class="container">
       <div class="screen"></div>
 
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
+      <?php 
+          for ($x=0;$x < ($seat_row['ch_totalSeats']/8);$x++):
+          ?>
+      <div class="row"> 
+      
+        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light"></a></div>
       </div>
-
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat sold"></div>
-        <div class="seat sold"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat sold"></div>
-        <div class="seat sold"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat sold"></div>
-        <div class="seat sold"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-      </div>
-      <div class="row">
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat sold"></div>
-        <div class="seat sold"></div>
-        <div class="seat sold"></div>
-        <div class="seat"></div>
-      </div>
+      <?php
+        endfor; ?>
     </div>
 
     <p class="text">

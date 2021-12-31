@@ -77,7 +77,7 @@ while($row=mysqli_fetch_array($movie_sql)):
               <span class="card-text"> Date: <?php echo date('d M Y', strtotime($s_row['s_Date'])); ?></span>
             </div>
             <div class="col-2">
-              <a href="#" class="btn btn-primary"><?php echo date('g:i', strtotime($s_row['s_startime'])) ?></a>
+              <a href="booking.php?s_id=<?php echo $s_row['s_id'] ?>"" class="btn btn-primary"><?php echo date('g:i', strtotime($s_row['s_startime'])) ?></a>
             </div>
 
             <?php endwhile; ?>
