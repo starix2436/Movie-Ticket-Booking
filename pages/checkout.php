@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <?php session_start(); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -34,9 +35,7 @@
   </head>
   <body class="bg-light">
     
-  <?php
-  include('./navbar.php');
-?>
+  <?php include './navbar.php'; ?>
 <div class="container">
   <main>
     <div class="py-5 text-center">
@@ -53,17 +52,23 @@
             <div>
               <h6 class="my-0">No. of Seats</h6>
             </div>
-            <span class="text-muted"><?php //querry to booking #1 ?></span>
+            <span class="text-muted"><?php
+//querry to booking #1
+?></span>
           </li>
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">Cost of a Seats</h6>
             </div>
-            <span class="text-muted"><?php //querry to booking #2 ?></span>
+            <span class="text-muted"><?php
+//querry to booking #2
+?></span>
           </li>
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (INR)</span>
-            <strong><?php //#1 * #2?></strong>
+            <strong><?php
+//#1 * #2
+?></strong>
           </li>
         </ul>
 
@@ -209,9 +214,7 @@
 
     </br>
     </br>
-  <?php
-  include('../pages/footer.php');
-?>
+  <?php include '../pages/footer.php'; ?>
 </div>
 
 

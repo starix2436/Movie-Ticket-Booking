@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <?php
+  session_start();
+  echo $_SESSION['username'];
+  echo $_SESSION['useremail'];
+  echo $_SESSION['userpass'];
+  ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -40,9 +46,7 @@
     </style>
   </head>
   <body>
-  <?php
-  include('navbar.php');
-?>
+  <?php include 'navbar.php'; ?>
     <div class="row row-cols-1 row-cols-md-2 g-4" style="padding-top:5rem">
       <div class="col">
         <div id="card">
@@ -194,9 +198,7 @@
     </br>
     </br>
     <hr class="featurette-divider" />
-    <?php
-  include('footer.php');
-?>
+    <?php include 'footer.php'; ?>
   <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

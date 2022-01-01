@@ -73,13 +73,17 @@ if (isset($_POST['login'])) {
 
     ($result = mysqli_query(
         $conn,
-        "SELECT u_email,u_pass FROM user WHERE u_email = '$email'"
+        "SELECT u_email,u_pass,u_name FROM user WHERE u_email = '$email'"
     )) or die('failed to query database' . mysqli_error($conn));
 
     $row = mysqli_fetch_assoc($result);
 
     if ($row['u_email'] == $email && $row['u_pass'] == $pass) {
         // echo 'Login successfull';
+        session_start();
+        $_SESSION['useremail'] = "$email";
+        $_SESSION['userpass'] = "$pass";
+        $_SESSION['username'] = $row['u_name'];
         header('location: ../index.php');
     } else {
         echo 'Login failed try agian..';
