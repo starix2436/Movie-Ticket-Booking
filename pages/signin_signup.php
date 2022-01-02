@@ -12,9 +12,9 @@
 	<div class="form-container sign-up-container">
 		<form action="#" method="post">
 			<h1>Create Account</h1>
-			<input type="text" placeholder="Fullname" name="name">
-			<input type="email" placeholder="Email" name="email">
-			<input type="password" placeholder="Password" name="pass">
+			<input type="text" placeholder="Fullname" name="name" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)" required>
+			<input type="email" placeholder="Email" name="email" required>
+			<input type="password" placeholder="Password" name="pass" required>
 			<button name="save" input type="submit">Sign Up</button>
 
 		</form>
@@ -22,8 +22,8 @@
 	<div class="form-container sign-in-container">
 		<form action="#" method="post">
 			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" name="lemail"/>
-			<input type="password" placeholder="Password" name="lpass"/>
+			<input type="email" placeholder="Email" name="lemail" required>
+			<input type="password" placeholder="Password" name="lpass" required>
 			<button name="login" input type="submit">Sign In</button>
 		</form>
 	</div>
@@ -86,7 +86,7 @@ if (isset($_POST['login'])) {
         $_SESSION['username'] = $row['u_name'];
         header('location: ../index.php');
     } else {
-        echo 'Login failed try agian..';
+        echo '<br>Login failed try again..';
     }
 
     mysqli_close($conn);
