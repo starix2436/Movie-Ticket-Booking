@@ -46,35 +46,35 @@
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Description</label>
+                <label for="movieDescription" class="form-label">Description</label>
                 <input type="text" class="form-control" name="description" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid description is required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Length</label>
+                <label for="movieLength" class="form-label">Length</label>
                 <input type="text" class="form-control" name="length" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid length is required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Genre</label>
+                <label for="movieGenre" class="form-label">Genre</label>
                 <input type="text" class="form-control" name="genre" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid genre is required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Rating</label>
+                <label for="movieRating" class="form-label">Rating</label>
                 <input type="text" class="form-control" name="rating" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid rating is required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Img link</label>
+                <label for="movieImg" class="form-label">Img link</label>
                 <input type="text" class="form-control" name="img_link" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid img_link is required.
@@ -121,21 +121,21 @@
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Date</label>
+                <label for="showDate" class="form-label">Date</label>
                 <input type="text" class="form-control" name="date" placeholder="YYYY-MM-DD" value="" required>
                 <div class="invalid-feedback">
                   Valid Date required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Starttime</label>
+                <label for="showStarttime" class="form-label">Starttime</label>
                 <input type="text" class="form-control" name="starttime" placeholder="hh:mm:ss" value="" required>
                 <div class="invalid-feedback">
                   Valid Start time is required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Cinema Hall Name</label>
+                <label for="showCHname" class="form-label">Cinema Hall Name</label>
                 <input type="text" class="form-control" name="cinema_hall" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid Cinema Hall name is required.
@@ -175,62 +175,88 @@
         </div>
 
         <div class="col">
-          <h4 class="mb-3">Show details</h4>
+          <h4 class="mb-3">Cinema Hall details</h4>
           <form class="needs-validation" action="#" method="postt">
             <div class="row g-3">
               <div class="col-6">
-                <label for="movieName" class="form-label">Movie Name</label>
-                <input type="text" class="form-control" id="s_name" placeholder="" value="" required>
+                <label for="CHname" class="form-label">Cinema Hall Name</label>
+                <input type="text" class="form-control" id="CHname" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid Movie name is required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Date</label>
-                <input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" value="" required>
+                <label for="CHnoSeats" class="form-label">Total no. of seats</label>
+                <input type="text" class="form-control" id="CHnoSeats" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid Date required.
                 </div>
               </div>
+              <!-- <div class="col-6">
+                <label for="seatType" class="form-label">Type of seat</label>
+                <input type="text" class="form-control" id="seatType" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Date required.
+                </div>
+              </div> -->
               <div class="col-6">
-                <label for="movieName" class="form-label">Starttime</label>
-                <input type="text" class="form-control" id="starttime" placeholder="hh:mm:ss" value="" required>
+                <label for="cityName" class="form-label">City</label>
+                <input type="text" class="form-control" id="cityName" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid Start time is required.
                 </div>
               </div>
               <div class="col-6">
-                <label for="movieName" class="form-label">Cinema Hall Name</label>
-                <input type="text" class="form-control" id="cinema_hall" placeholder="" value="" required>
+                <label for="cityState" class="form-label">State</label>
+                <input type="text" class="form-control" id="cityState" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid Cinema Hall name is required.
+                </div>
+              </div>
+              <div class="col-6">
+                <label for="cityZipcode" class="form-label">Zipcode</label>
+                <input type="text" class="form-control" id="cityZipcode" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid Cinema Hall name is required.
                 </div>
               </div>
             
+            
 
               <hr class="my-4">
-              <button class="w-100 btn btn-primary btn-lg" name="add_to_db" type="submit">Add to Database</button>
+              <button class="w-100 btn btn-primary btn-lg" name="add_to_db_Ch" type="submit">Add to Database</button>
               <hr class="my-4">
               <?php 
-                // if (isset($_POST['add_to_db'])){
-                //   $name=$_POST['name'];
-                //   $description=$_POST['description'];
-                //   $lenght=$_POST['lenght'];
-                //   $genre=$_POST['genre'];
-                //   $rating=$_POST['rating'];
-                //   $img_link=$_POST['img_link'];
-                // }
 
-                // echo $name;
+                if (isset($_POST['add_to_db_Ch'])){
+                  $ch_name=$_POST['CHname'];
+                  $ch_noSeats=$_POST['CHnoSeats'];
+                  $ch_seatType=$_POST['seatType'];
+                  $ct_name=$_POST['cityName'];
+                  $ct_state=$_POST['cityState'];
+                  $ct_zipcode=$_POST['cityZipcode'];
 
-                // // $sql = "INSERT INTO movie_30 (m_name,m_rating,m_len,m_genre,m_img) VALUES ('$name','$rating','$length','$genre','$img_link')";
 
-                // // if (mysqli_query($conn, $sql)) {
-                // //   echo '<br>New record created successfully !';
-                // // } else {
-                // //   echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
-                // // }
-                // mysqli_close($conn);
+                  $sql_get_ctid = "SELECT ct_id from city where ct_name= '".$ct_name."' AND ct_zipcode='".$ct_zipcode."'";
+                  $ctid=(int)mysqli_query($conn,$sql_get_ctid);
+                  $sql_cinema = "INSERT INTO cinema (c_name,ct_id) VALUES ('$ch_name','$ctid')";
+
+                  $sql_get_cid = "SELECT c_id from chinema where c_name = '".$ch_name."'";
+                  $cid=(int)mysqli_query($conn,$sql_get_cid);
+                  $sql_cinema_hall = "INSERT INTO cinema_hall (ch_name,ch_totalSeats,c_id) VALUES ('$ch_name,'$ch_noSeats','$cid')";
+
+                if (mysqli_query($conn, $sql_cinema)) {
+                  echo '<br>New record created successfully !';
+                } else {
+                  echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
+                }
+                if (mysqli_query($conn, $sql_cinema_hall)) {
+                  echo '<br>New record created successfully !';
+                } else {
+                  echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
+                }
+
+              }
               
               ?>
 

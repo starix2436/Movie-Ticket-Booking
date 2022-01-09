@@ -47,7 +47,11 @@ $id = $_GET['s_id'];
           ?>
       <div class="row"> 
       
-        <div class="seat"><a class="btn-light"></a></div>
+        <div class="seat"><a class="btn-light">
+          <?php
+             
+          ?>
+        </a></div>
         <div class="seat"><a class="btn-light"></a></div>
         <div class="seat"><a class="btn-light"></a></div>
         <div class="seat"><a class="btn-light"></a></div>
@@ -66,6 +70,6 @@ $id = $_GET['s_id'];
         >0</span
       >
     </p>
-    <script src="booking_script.js"></script>
+    <!-- <script src="booking_script.js"></script> -->
   </body>
 </html>

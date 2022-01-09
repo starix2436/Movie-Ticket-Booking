@@ -80,7 +80,7 @@ session_start();
             $conn,
             'select * from show_c where m_id =' . $id
         );
-        while ($s_row = mysqli_fetch_array($show_sql)):<?php
+        while ($s_row = mysqli_fetch_array($show_sql)):
             //$row = $conn->query($sql);
             ?>
 
