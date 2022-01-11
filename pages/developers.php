@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <?php
-  session_start();
-  echo $_SESSION['username'];
-  echo $_SESSION['useremail'];
-  echo $_SESSION['userpass'];
-  ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
