@@ -47,9 +47,9 @@ body {
     border-top-right-radius: 10px;
 }
 
-/* .seat.selected {
+.seat.selected {
     background-color: green;
-} */
+}
 
 .seat.sold {
     background-color: #fff;
