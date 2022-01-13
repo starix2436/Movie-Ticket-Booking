@@ -78,11 +78,12 @@ $id = $_GET['s_id'];
                             //   echo 'selected';
 
 
-                            $sql_get_chid;
+                            $sql_get_chid = $seat_row['ch_id'];
                             $sql_get_csid;
-                            $sql_get_ssstatus;
+                            $sql_get_cstype;
+                            // $sql_get_ssstatus;
 
-                            }
+                            // }
 
                           ?>"><a class="btn-light" href='booking.php?hello=true' name='hello'></a></div>
 

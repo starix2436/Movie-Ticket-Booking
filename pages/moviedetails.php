@@ -91,7 +91,7 @@ session_start();
               ); ?></span>
             </div>
             <div class="col-2">
-              <a href="booking.php?s_id=<?php echo $s_row[
+              <a href="checkout.php?s_id=<?php echo $s_row[
                   's_id'
               ]; ?>"" class="btn btn-primary"><?php echo date(
     'g:i',

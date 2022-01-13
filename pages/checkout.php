@@ -51,6 +51,7 @@
           <li class="list-group-item d-flex justify-content-between lh-sm">
             <div>
               <h6 class="my-0">No. of Seats</h6>
+              <input type="text" class="form-control" id="noSeats" placeholder="" value="" required>
             </div>
             <span class="text-muted"><?php
 //querry to booking #1
