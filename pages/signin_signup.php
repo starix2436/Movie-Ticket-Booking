@@ -84,7 +84,7 @@ if (isset($_POST['login'])) {
         $_SESSION['useremail'] = "$email";
         $_SESSION['userpass'] = "$pass";
         $_SESSION['username'] = $row['u_name'];
-        header('location: ../index.php');
+        header('location: http://localhost/index.php');
     } else {
         echo '<br>Login failed try again..';
     }
