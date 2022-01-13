@@ -46,7 +46,7 @@
 </div>
 
 <?php
-include_once 'C:\xampp\htdocs\db_connection.php';
+include_once '../db_connection.php';
 
 if (isset($_POST['save'])) {
     $conn = OpenCon();
