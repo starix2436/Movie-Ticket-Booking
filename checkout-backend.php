@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 if (isset($_POST['submit'])){
   $u_name=$_POST['firstName'];
   $u_mail=$_POST['email'];

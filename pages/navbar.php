@@ -42,7 +42,7 @@
               href="http://localhost/pages/signin_signup.php" class="nav-link px-2 text-white">Sign-up</a></button><?php endif;
 
 if(isset($_SESSION['useremail'])&&isset($_SESSION['userpass'])&&isset($_SESSION['username'])): ?><button type="button"
-            class="btn btn-warning"><a class="nav-link px-2 text-white" href="logout.php">Logout</a></button><?php endif;
+            class="btn btn-warning"><a class="nav-link px-2 text-white" href="http://localhost/logout.php">Logout</a></button><?php endif;
 ?></div>
       </div>
     </div>
