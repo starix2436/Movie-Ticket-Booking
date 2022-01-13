@@ -58,6 +58,7 @@
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="http://localhost/pages/developers.php" class="nav-link p-0 text-muted">DEVELOPERS</a></li>
           <li class="nav-item mb-2"><a href="http://localhost/pages/allmovies.php" class="nav-link p-0 text-muted">ALL MOVIES</a></li>
+          <li class="nav-item mb-2"><a href="http://localhost/pages/admin.php" class="nav-link p-0 text-muted">ADMIN</a></li>
         </ul>
       </div>
 

@@ -69,19 +69,19 @@ $id = $_GET['s_id'];
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Cost of a Seats</h6>
+                <h6 class="my-0">Cost Of Each Seat: 240</h6>
               </div>
               <span class="text-muted"></span>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (INR) <?php
-                      
-                      error_reporting(E_ERROR | E_PARSE);
-                      $no = $_GET['noSeats'];
-                      echo $no*250;
-                      
+            <script>
+              var inputBox = document.getElementById('noSeats');
 
-?></span>
+              inputBox.onkeyup = function () {
+                document.getElementById('output').innerHTML = inputBox.value * 240;
+              }
+            </script>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (INR) <span id="output"></span></span>
               <strong></strong>
             </li>
           </ul>
@@ -217,7 +217,8 @@ $id = $_GET['s_id'];
 
             <hr class="my-4">
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit"><a href="../index.php">Continue to checkout</a></button>
+            <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit"><a href="../index.php">Continue to
+                checkout</a></button>
           </form>
         </div>
       </div>
@@ -263,6 +264,7 @@ $id = $_GET['s_id'];
 
 
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <script src="form-validation.js"></script>
 </body>
