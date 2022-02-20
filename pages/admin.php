@@ -241,7 +241,7 @@
                   $ctid=(int)mysqli_query($conn,$sql_get_ctid);
                   $sql_cinema = "INSERT INTO cinema (c_name,ct_id) VALUES ('$ch_name','$ctid')";
 
-                  $sql_get_cid = "SELECT c_id from chinema where c_name = '".$ch_name."'";
+                  $sql_get_cid = "SELECT c_id from cinema where c_name = '".$ch_name."'";
                   $cid=(int)mysqli_query($conn,$sql_get_cid);
                   $sql_cinema_hall = "INSERT INTO cinema_hall (ch_name,ch_totalSeats,c_id) VALUES ('$ch_name,'$ch_noSeats','$cid')";
 
