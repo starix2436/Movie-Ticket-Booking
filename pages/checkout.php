@@ -219,9 +219,9 @@ $id = $_GET['s_id'];
             </div>
 
             <hr class="my-4">
-            <input type = "submit" name = "submit" value = "Submit">
+            <input class="w-100 btn btn-primary btn-lg" type = "submit" name = "submit" value = "Submit">
 <!-- 
-            <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit"><a href="../index.php" style="color:white">Continue to
+            <button  type="submit" name="submit"><a href="../index.php" style="color:white">Continue to
                 checkout</a></button> -->
           </form>
         </div>

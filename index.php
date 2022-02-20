@@ -208,10 +208,12 @@ session_start();
           <p class="lead">
           The Bandit is a 1996 Turkish film written and directed by Yavuz Turgul and starring Şener Şen and Uğur Yücel. 
           </p>
-          <button type="button" href="./pages/moviedetails.php?m_id=<?php echo $row[
-              'm_id'
-          ]; ?>" class="btn btn-outline-primary">Book Now</button>
 
+          <a href="./pages/moviedetails.php?m_id=<?php echo $row[
+              'm_id'
+          ]; ?>" >
+          <button type="button" class="btn btn-outline-primary">Book Now</button>
+  </a>
         </div>
         <div class="col-md-5">
             <img src="<?php if ($oIMDB->isReady) {
@@ -237,11 +239,11 @@ session_start();
           <p class="lead">
           Barry, an Irish rogue, gets into a relationship with a rich widow and cheats his way to the top of the 18th-century British society, by assuming the identity of her dead husband.
           </p>
-      
-          <button type="button" href="./pages/moviedetails.php?m_id=<?php echo $row[
+            <a href="./pages/moviedetails.php?m_id=<?php echo $row[
               'm_id'
-          ]; ?>" class="btn btn-outline-primary" style="float:right">Book Now</button>
-
+          ]; ?>">
+          <button type="button"  class="btn btn-outline-primary" style="float:right">Book Now</button>
+</a>
         </div>
         <div class="col-md-5 order-md-1">
         <img src="<?php if ($oIMDB->isReady) {
@@ -267,10 +269,9 @@ session_start();
           <p class="lead">
           Barry, an Irish rogue, gets into a relationship with a rich widow and cheats his way to the top of the 18th-century British society, by assuming the identity of her dead husband.
           </p>
-          <button type="button" href="./pages/moviedetails.php?m_id=<?php echo $row[
-              'm_id'
-          ]; ?>" class="btn btn-outline-primary">Book Now</button>
-
+          <a href="./pages/moviedetails.php?m_id=<?php echo $row['m_id']; ?>">
+          <button type="button"  class="btn btn-outline-primary">Book Now</button>
+        </a>
         </div>
         <div class="col-md-5">
         <img src="<?php if ($oIMDB->isReady) {
@@ -299,10 +300,13 @@ session_start();
             ]; ?> </h1>
             <p class="lead">Earl Partridge and Jimmy Gator, both afflicted with cancer, work together on a TV show. They both live in dysfunctional families, which affects their personal and professional lives.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" href="./pages/moviedetails.php?m_id=<?php echo $row[
+<a href="./pages/moviedetails.php?m_id=<?php echo $row[
                   'm_id'
-              ]; ?>" class="btn btn-primary btn-lg px-4 me-md-2">BOOK NOW</button>
-            </div>
+              ]; ?>" >
+              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">BOOK NOW</button>
+   </a>         
+          
+          </div>
           </div>
         </div>
       </div>
