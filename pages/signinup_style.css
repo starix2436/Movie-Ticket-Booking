@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
   box-sizing: border-box;
@@ -10,7 +10,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   height: 100vh;
   margin: -20px 0 50px;
 }
@@ -45,8 +45,8 @@ a {
 
 button {
   border-radius: 20px;
-  border: 1px solid #ff4b2b;
-  background-color: #ff4b2b;
+  border: 1px solid #212529;
+  background-color: #212529;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -161,8 +161,8 @@ input {
 
 .overlay {
   background: #46c77f;
-  background: -webkit-linear-gradient(to right, #46c77f, #46c77f);
-  background: linear-gradient(to right, #46c77f, #46c77f);
+  background: -webkit-linear-gradient(to right, #212529, #212529);
+  background: linear-gradient(to right, #212529, #212529);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
