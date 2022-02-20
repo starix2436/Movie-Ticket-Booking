@@ -2,6 +2,7 @@
 include '../db_connection.php';
 $conn = OpenCon();
 $id = $_GET['s_id'];
+
 ?>
 
 <!doctype html>
@@ -62,7 +63,9 @@ $id = $_GET['s_id'];
                 <form name="form" action="" method="post">
                   <h6 class="my-0">No. of Seats</h6>
                   <input type="text" class="form-control" name="noSeats" id="noSeats" placeholder="" value="" required>
-                  <input type="text" class="form-control" name="s_id" id="s_id" placeholder="" value="">
+                   
+                  <input type="text" class="form-control" name="s_id" id="s_id" placeholder="" value="<?php echo $id ?>" hidden>
+              
                 </from>
               </div>
               <span class="text-muted"></span>
@@ -233,6 +236,14 @@ $id = $_GET['s_id'];
     <?php include '../pages/footer.php'; ?>
     <?php 
 
+
+if( !(isset($_SESSION['useremail'])&&isset($_SESSION['userpass'])&&isset($_SESSION['username']))){
+  echo '<script type="text/javascript">'; 
+  echo 'alert("Please login to book a ticket");';
+  echo 'window.location= "./signin_signup.php";';
+  echo '</script>';    
+}
+
                 if (isset($_POST['submit'])){
                   $u_name=$_POST['firstName'];
                   $u_mail=$_POST['email'];
@@ -244,13 +255,13 @@ $id = $_GET['s_id'];
                   $u_id_result=mysqli_query($conn,$sql_get_uid);
 
                   while ($u_id = $u_id_result->fetch_assoc()) {
-                      $u_id_value =  $u_id['u_id'];
+                    $u_id_value =  $u_id['u_id'];
                   }
-
-                  $sql_booking = "INSERT INTO booking (b_noOSeats,u_id,s_id) VALUES ('$no','$u_id_value','$id')";
+                  $s_id = $_GET['s_id'];
+                  $sql_booking = "INSERT INTO booking (b_noOSeats,u_id,s_id) VALUES ('$no','$u_id_value','$s_id')";
 
                   if (mysqli_query($conn, $sql_booking)) {
-                    echo '<br>New record created successfully !';
+                    echo '';
                 } else {
                     echo '<br>Error: ' . $sql_booking . '' . mysqli_error($conn);
                 }
@@ -262,30 +273,21 @@ $id = $_GET['s_id'];
                   while ($b_id = $b_id_result->fetch_assoc()) {
         
                       $b_id_value =  $b_id['b_id'];
-                      echo $b_id['b_id']."<br>";
                     }
 
-                  $sql_payment = "INSERT INTO payment (p_amount,b_id) VALUES ('$no*250',$b_id_value')";
+                  $sql_payment = "INSERT INTO payment (p_amount,b_id) VALUES ('$no','$b_id_value')";
 
                   if (mysqli_query($conn, $sql_payment)) {
-                    echo '<br>New record created successfully !';
+               
+              echo '<script type="text/javascript">'; 
+              echo 'alert("Booking Successful");';
+              echo 'window.location= "../index.php";';
+              echo '</script>';    
+          
                 } else {
                     echo '<br>Error: ' . $sql_payment . '' . mysqli_error($conn);
                 }
-
-                if (mysqli_query($conn, $sql_cinema)) {
-                  echo '<br>New record created successfully !';
-                } else {
-                  echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
-                }
-                if (mysqli_query($conn, $sql_cinema_hall)) {
-                  echo '<br>New record created successfully !';
-                } else {
-                  echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
-                }
-                sleep(1000);
               }
-              
               ?>
   </div>
 
