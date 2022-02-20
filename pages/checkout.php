@@ -1,7 +1,6 @@
 <?php
 include '../db_connection.php';
 $conn = OpenCon();
-
 $id = $_GET['s_id'];
 ?>
 
@@ -60,10 +59,11 @@ $id = $_GET['s_id'];
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <form name="form" action="" method="get">
+                <form name="form" action="" method="post">
                   <h6 class="my-0">No. of Seats</h6>
                   <input type="text" class="form-control" name="noSeats" id="noSeats" placeholder="" value="" required>
-                  </from>
+                  <input type="text" class="form-control" name="s_id" id="s_id" placeholder="" value="">
+                </from>
               </div>
               <span class="text-muted"></span>
             </li>
@@ -99,7 +99,7 @@ $id = $_GET['s_id'];
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required>
                 <div class="invalid-feedback">
                   Valid first name is required.
                 </div>
@@ -115,7 +115,7 @@ $id = $_GET['s_id'];
 
               <div class="col-12">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                 <div class="invalid-feedback">
                   Please enter a valid email address for shipping updates.
                 </div>
@@ -216,9 +216,10 @@ $id = $_GET['s_id'];
             </div>
 
             <hr class="my-4">
-
-            <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit"><a href="../index.php">Continue to
-                checkout</a></button>
+            <input type = "submit" name = "submit" value = "Submit">
+<!-- 
+            <button class="w-100 btn btn-primary btn-lg" type="submit" name="submit"><a href="../index.php" style="color:white">Continue to
+                checkout</a></button> -->
           </form>
         </div>
       </div>
@@ -235,16 +236,42 @@ $id = $_GET['s_id'];
                 if (isset($_POST['submit'])){
                   $u_name=$_POST['firstName'];
                   $u_mail=$_POST['email'];
-                  
+                  $no = $_POST['noSeats'];
                   // $p_amount=$_POST['cityName'];
 
-                  $sql_get_uid = "SELECT u_id from usrs where u_name= '".$u_name."' AND u_email ='".$u_mail."'";
-                  $uid=(int)mysqli_query($conn,$sql_get_ctid);
-                  $sql_booking = "INSERT INTO booking (b_noOSeats,u_id,s_id) VALUES ('$no','$u_id','$id')";
+                  $sql_get_uid = ("SELECT u_id FROM user WHERE u_email = '$u_mail'");
+                  
+                  $u_id_result=mysqli_query($conn,$sql_get_uid);
 
-                  $sql_get_bid = "SELECT b_id FROM booking ORDER BY b_id DESC LIMIT 1";
-                  $bid=(int)mysqli_query($conn,$sql_get_cid);
-                  $sql_payment = "INSERT INTO payment (p_amount,b_id) VALUES ('$no*250',$bid')";
+                  while ($u_id = $u_id_result->fetch_assoc()) {
+                      $u_id_value =  $u_id['u_id'];
+                  }
+
+                  $sql_booking = "INSERT INTO booking (b_noOSeats,u_id,s_id) VALUES ('$no','$u_id_value','$id')";
+
+                  if (mysqli_query($conn, $sql_booking)) {
+                    echo '<br>New record created successfully !';
+                } else {
+                    echo '<br>Error: ' . $sql_booking . '' . mysqli_error($conn);
+                }
+
+                  $sql_get_b_id = "SELECT b_id FROM booking ORDER BY b_id DESC LIMIT 1";
+
+                  $b_id_result=mysqli_query($conn,$sql_get_b_id);
+                  
+                  while ($b_id = $b_id_result->fetch_assoc()) {
+        
+                      $b_id_value =  $b_id['b_id'];
+                      echo $b_id['b_id']."<br>";
+                    }
+
+                  $sql_payment = "INSERT INTO payment (p_amount,b_id) VALUES ('$no*250',$b_id_value')";
+
+                  if (mysqli_query($conn, $sql_payment)) {
+                    echo '<br>New record created successfully !';
+                } else {
+                    echo '<br>Error: ' . $sql_payment . '' . mysqli_error($conn);
+                }
 
                 if (mysqli_query($conn, $sql_cinema)) {
                   echo '<br>New record created successfully !';
@@ -256,7 +283,7 @@ $id = $_GET['s_id'];
                 } else {
                   echo '<br>Error: ' . $sql . '' . mysqli_error($conn);
                 }
-
+                sleep(1000);
               }
               
               ?>
